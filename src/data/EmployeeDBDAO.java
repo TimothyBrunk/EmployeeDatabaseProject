@@ -3,7 +3,9 @@ package data;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class EmployeeDBDAO implements EmployeeDAO {
     private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
@@ -12,8 +14,8 @@ public class EmployeeDBDAO implements EmployeeDAO {
 	@Override
 	public Employee getEmpByID(int id) {
 		Employee emp = null; 
-		String sql = "select id,firstname, middlename, lastname, email from employees where id =" +id; 
-		
+		String sql = "select id,firstname, middlename, lastname, email, gender, hiredate, "
+				+ " salary, department_id, job_id, address, city, state, zipcode from employees where id =" + id; 
 		try {
 			Class.forName(DRIVER_CLASS_NAME);
 			Connection conn = DriverManager.getConnection(URL, "student", "student");
@@ -22,12 +24,54 @@ public class EmployeeDBDAO implements EmployeeDAO {
 			while (rs.next()) { 
 				String eid = rs.getString(1);
 				String firstName = rs.getString(2); 
-				String middlename = rs.getString(3); 
+				String middleName = rs.getString(3); 
 				String lastName = rs.getString(4); 
 				String email = rs.getString(5); 
-				emp = new Employee(eid, firstName,middlename,lastName, email); 
+				String gender = rs.getString(6); 
+				String hiredate = rs.getString(7); 
+				String salary = rs.getString(8); 
+				String departmentId = rs.getString(9); 
+				String jobId = rs.getString(10); 
+				String address = rs.getString(11); 
+				String city = rs.getString(12); 
+				String state = rs.getString(13); 
+				String zipcode = rs.getString(14); 
+				emp = new Employee(eid, firstName, middleName,lastName, email, 
+				 gender, hiredate, salary, departmentId, jobId, address, city, state, zipcode); 
 			}
+			rs.close(); 
+			statement.close(); 
+			conn.close(); 
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return emp;
+	}
+	public ArrayList<ArrayList> getAllEmployees (String qry) { 
+		ArrayList<ArrayList> arraylistquery = new ArrayList<>(); 
+		try {
+			Class.forName(DRIVER_CLASS_NAME);
+			Connection conn = DriverManager.getConnection(URL, "student", "student"); 
+			Statement statement = conn.createStatement(); 
+			ResultSet rs = statement.executeQuery(qry); 
+			ResultSetMetaData md = rs.getMetaData(); 
 			
+			ArrayList<String> list = new ArrayList<> (); 
+			for(int i=1; i <= md.getColumnCount(); i++ ) { 
+				list.add(md.getColumnName(i)); 
+			}
+			System.out.println("InDAO");
+			arraylistquery.add(list); 
+			
+			int x = md.getColumnCount();
+			while (rs.next()) { 
+				ArrayList<String> row = new ArrayList<>(); 
+				for (int i=1; i <= x; i++) { 
+					row.add(rs.getString(i)); 
+				}
+				arraylistquery.add(row); 
+				System.out.println(row);
+			}
 			
 			rs.close(); 
 			statement.close(); 
@@ -36,7 +80,10 @@ public class EmployeeDBDAO implements EmployeeDAO {
 			System.out.println(e);
 		}
 		
-		return emp;
+		return arraylistquery; 
+	}
+		
+		
 	}
 
-}
+

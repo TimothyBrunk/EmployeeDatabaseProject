@@ -13,8 +13,8 @@
 	Employee ID:  ${employee.eid} <br> First Name: ${employee.firstName} <br> Last Name: ${employee.lastName} <br>
 	 Dept. ID: ${employee.departmentId} Job ID: ${employee.jobId} <br> 
 	Address: ${employee.address} , ${employee.city} , ${employee.state} , ${employee.zipcode}
-	
-	
+	<form action="deleteEmployee" method="POST" id="inputtext">
+	<input type="submit" name="id" value="submit"/>
 	
 </body>
 </html>

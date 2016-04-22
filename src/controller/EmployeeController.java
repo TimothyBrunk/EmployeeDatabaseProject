@@ -40,7 +40,25 @@ public class EmployeeController {
 	public ModelAndView addEmployee(String firstname, String lastname, String departmentId, String jobId, String address,
 		String city, String state, String zipcode){
 		Employee emp =null;
-		int uc=employeeDao.addEmployee(firstname, lastname, departmentId, jobId, address,city, state, zipcode); 
+//		int uc=employeeDao.addEmployee(firstname, lastname, departmentId, jobId, address,city, state, zipcode); 
+		ModelAndView mv = new ModelAndView();
+		Employee e = new Employee(); 
+		e.setFirstName(firstname);
+		e.setLastName(lastname);
+		e.setDepartmentId(departmentId);
+		e.setJobId(jobId);
+		e.setAddress(address);
+		e.setCity(city);
+		e.setState(state);
+		e.setZipcode(zipcode);
+		employeeDao.addEmployee(e); 
+		mv.setViewName("resultEmpById.jsp");
+		mv.addObject("employee", emp); 
+		return mv;
+	}
+	@RequestMapping("DeleteEmployee.do")
+	public ModelAndView deleteEmployee(int id){
+		Employee emp =employeeDao.deleteEmployee(id); 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("resultEmpById.jsp");
 		mv.addObject("employee", emp); 

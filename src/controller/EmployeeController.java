@@ -36,5 +36,15 @@ public class EmployeeController {
 
 		return mv;
 	}
+	@RequestMapping("AddEmployee.do")
+	public ModelAndView addEmployee(String firstname, String lastname, String departmentId, String jobId, String address,
+		String city, String state, String zipcode){
+		Employee emp =null;
+		int uc=employeeDao.addEmployee(firstname, lastname, departmentId, jobId, address,city, state, zipcode); 
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("resultEmpById.jsp");
+		mv.addObject("employee", emp); 
+		return mv;
+	}
 
 }

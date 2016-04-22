@@ -3,12 +3,7 @@ package data;
 public class Employee {
 	private String eid;
 	private String firstName;
-	private String middleName;
 	private String lastName;
-	private String email;
-	private String gender;
-	private String hiredate;
-	private String salary;
 	private String departmentId;
 	private String jobId;
 	private String address;
@@ -20,18 +15,13 @@ public class Employee {
 
 	}
 
-	public Employee(String eid, String firstName, String middleName, String lastName, String email,String gender, String hiredate,
-			String salary, String departmentId, String jobId, String address, String city, String state,
+	public Employee(String eid, String firstName,  String lastName, 
+			String departmentId, String jobId, String address, String city, String state,
 			String zipcode) {
 		super();
 		this.eid = eid;
 		this.firstName = firstName;
-		this.middleName = middleName;
 		this.lastName = lastName;
-		this.email=email; 
-		this.gender = gender;
-		this.hiredate = hiredate;
-		this.salary = salary;
 		this.departmentId = departmentId;
 		this.jobId = jobId;
 		this.address = address;
@@ -56,13 +46,13 @@ public class Employee {
 		this.firstName = firstName;
 	}
 
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
+//	public String getMiddleName() {
+//		return middleName;
+//	}
+//
+//	public void setMiddleName(String middleName) {
+//		this.middleName = middleName;
+//	}
 
 	public String getLastName() {
 		return lastName;
@@ -72,29 +62,29 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
-	public String getGender() {
-		return gender;
-	}
+//	public String getGender() {
+//		return gender;
+//	}
+//
+//	public void setGender(String gender) {
+//		this.gender = gender;
+//	}
+//
+//	public String getHiredate() {
+//		return hiredate;
+//	}
+//
+//	public void setHiredate(String hiredate) {
+//		this.hiredate = hiredate;
+//	}
+//
+//	public String getSalary() {
+//		return salary;
+//	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public String getHiredate() {
-		return hiredate;
-	}
-
-	public void setHiredate(String hiredate) {
-		this.hiredate = hiredate;
-	}
-
-	public String getSalary() {
-		return salary;
-	}
-
-	public void setSalary(String salary) {
-		this.salary = salary;
-	}
+//	public void setSalary(String salary) {
+//		this.salary = salary;
+//	}
 
 	public String getDepartmentId() {
 		return departmentId;
@@ -146,18 +136,18 @@ public class Employee {
 
 
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
+//	public String getEmail() {
+//		return email;
+//	}
+//
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
 
 	@Override
 	public String toString() {
-		return "Employee [eid=" + eid + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", gender=" + gender + ", hiredate=" + hiredate + ", salary=" + salary + ", departmentId="
+		return "Employee [eid=" + eid + ", firstName=" + firstName + ",  lastName="
+				+ lastName + ", gender=" + ", hiredate=" +  ", salary=" +  ", departmentId="
 				+ departmentId + ", jobId=" + jobId + ", address=" + address + ", city=" + city + ", state=" + state
 				+ ", zipcode=" + zipcode + "]";
 

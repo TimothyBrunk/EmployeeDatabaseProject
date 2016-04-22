@@ -24,20 +24,20 @@ public class EmployeeDBDAO implements EmployeeDAO {
 			while (rs.next()) { 
 				String eid = rs.getString(1);
 				String firstName = rs.getString(2); 
-				String middleName = rs.getString(3); 
+//				String middleName = rs.getString(3); 
 				String lastName = rs.getString(4); 
-				String email = rs.getString(5); 
-				String gender = rs.getString(6); 
-				String hiredate = rs.getString(7); 
-				String salary = rs.getString(8); 
+//				String email = rs.getString(5); 
+//				String gender = rs.getString(6); 
+//				String hiredate = rs.getString(7); 
+//				String salary = rs.getString(8); 
 				String departmentId = rs.getString(9); 
 				String jobId = rs.getString(10); 
 				String address = rs.getString(11); 
 				String city = rs.getString(12); 
 				String state = rs.getString(13); 
 				String zipcode = rs.getString(14); 
-				emp = new Employee(eid, firstName, middleName,lastName, email, 
-				 gender, hiredate, salary, departmentId, jobId, address, city, state, zipcode); 
+				emp = new Employee(eid, firstName,lastName, 
+						departmentId, jobId, address, city, state, zipcode); 
 			}
 			rs.close(); 
 			statement.close(); 
@@ -82,7 +82,28 @@ public class EmployeeDBDAO implements EmployeeDAO {
 		
 		return arraylistquery; 
 	}
+	public int addEmployee(String firstname, String lastname, String departmentId, String jobId, String address,
+			String city, String state, String zipcode) {
+		int updateCount = 0;
+		String sql = "INSERT INTO employees (firstname, lastname, department_id, job_id,"
+				                           + " address, city, state, zipcode) Values ('"
+				+firstname+"','"+lastname+"',"+departmentId+","+jobId+",'"
+				    +address+"','"+city+"','"+state+"','"+zipcode+ "');";
+
+		try {
+			Class.forName(DRIVER_CLASS_NAME);
+			Connection conn = DriverManager.getConnection(URL, "student", "student");
+			Statement statement = conn.createStatement(); 
+			 updateCount = statement.executeUpdate(sql); 
+
+			statement.close(); 
+			conn.close(); 
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return updateCount;
 		
+	}
 		
 	}
 

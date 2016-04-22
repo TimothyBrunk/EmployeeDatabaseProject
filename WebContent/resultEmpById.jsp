@@ -10,10 +10,11 @@
 <body>
 <h3>Results of Your Query: </h3>
 
-	Employee ID:  ${employee.eid}  First Name: ${employee.firstName} Middle Name: ${employee.middleName} Last Name: ${employee.lastName} <br>
-	Email: ${employee.email} Gender: ${employee.gender} HireDate: ${employee.hiredate} Salary: ${employee.salary} Dept. ID: ${employee.departmentId} Job ID: ${employee.jobId} <br> 
-	Address: ${employee.address} City: ${employee.city} State: ${employee.state} Zipcode: ${employee.zipcode}
-
+	Employee ID:  ${employee.eid} <br> First Name: ${employee.firstName} <br> Last Name: ${employee.lastName} <br>
+	 Dept. ID: ${employee.departmentId} Job ID: ${employee.jobId} <br> 
+	Address: ${employee.address} , ${employee.city} , ${employee.state} , ${employee.zipcode}
+	
+	
 	
 </body>
 </html>

@@ -114,10 +114,25 @@ public class EmployeeDBDAO implements EmployeeDAO {
 	}
 
 	@Override
-	public Employee deleteEmployee(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public int deleteEmployee(int id) {
+		int updateCount = 0;
+		String insertTable = "DELETE FROM Employees Where id = ; ";
+
+		try {
+			Class.forName(DRIVER_CLASS_NAME);
+			Connection conn = DriverManager.getConnection(URL, "student", "student");
+			Statement statement = conn.createStatement();
+			PreparedStatement stmt = conn.prepareStatement(insertTable);
+			updateCount = stmt.executeUpdate("DELETE FROM Employees Where id =" +id+";");
+			statement.close();
+			conn.close();
+		} catch (Exception e1) {
+			System.out.println(e1);
+		}
+		return updateCount;
+
 	}
+
 	public int updateEmployee(Employee e) {
 		int updateCount = 0;
 		String insertTable = "INSERT INTO employees (firstname, lastname, department_id, job_id, "

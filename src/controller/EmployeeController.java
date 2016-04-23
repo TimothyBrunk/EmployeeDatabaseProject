@@ -58,8 +58,10 @@ public class EmployeeController {
 	}
 	@RequestMapping("DeleteEmployee.do")
 	public ModelAndView deleteEmployee(int id){
-		Employee emp =employeeDao.deleteEmployee(id); 
+		Employee emp = null; 
+		Employee e = new Employee(); 
 		ModelAndView mv = new ModelAndView();
+		employeeDao.deleteEmployee(id); 
 		mv.setViewName("resultEmpById.jsp");
 		mv.addObject("employee", emp); 
 		return mv;

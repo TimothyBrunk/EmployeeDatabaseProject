@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopZtWL58-FuZutGY-IaFC-KRMbTIediMqw5EmyEjqCg5_5twmsA">
+      <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopZtWL58-FuZutGY-IaFC-KRMbTIediMqw5EmyEjqCg5_5twmsA">
 
     <title>Top Secret Research and Design</title>
 
@@ -80,36 +80,25 @@
                     <div class="intro-message">
                         <h1>Top Secret Research and Design</h1>
                         <h3>Employee Database</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                            <form action="GetAllEmployees.do" method="POST" >
-                                <input type ="submit" value="List All Employees" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name"></span>
-                               </form> 
-                            </li>
-                            <li>
-                            <form action="AddEmployee.do" method="POST" > 
-                                <input type="submit" value="Add New Employee" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name"></span>
-                                
-                                </form>
-                            </li><br><br>
-                            <li>
-                            <form action="GetEmployeeById.do" method="GET">
-                        <input id="idtext" type="text" name="id" placeholder="Search By Id Number" required style="width: 200px; height: 40px;"/>
-                                <input type="submit" value="Search By Id" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name"></span>
-                                </form>
-                            </li>
-                            <br>
-                            <br>
-                            <li>
-                            <form action="GetEmployeeByName.do" method="GET">
-                        <input id="idtext" type="text" name="firstname" placeholder="FirstName" required style="width: 200px; height: 40px;"/>
-                        <input id="idtext" type="text" name="lastname" placeholder="LastName" required style="width: 200px; height: 40px;"/>
-                                <input type="submit" value="Search by Name" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name"></span>
-                                </form>
-                            </li>
-                        
-                        </ul>
+         			<div id="bodytext" >
+         			My grades: <br>
+         			HTML/JSP: I would give myself a 3 - Meeting <br> 
+         			CSS: I would give myself a 3 - Meeting <br> 
+         			MVC: I would give myself a 3 - Meeting - due to the fact that the I believe that the controller logic is as concise as I know how to make it. <br>
+         			I definitely know that I have a lot to learn, but at this point I feel that I understand the controller and I know what I need to do to use it correctly. <br> 
+         			Even though it might not look perfect now, I believe that with more time I would have been able to make it more precise. <br> 
+         			JSTL: I would give myself a 2 - Approaching - due to the fact that I think I only used JSTL once or twice. <br>
+         			SQL: I would give myself a 3 - Meeting - because I did use Metadata with one query and used SQL language with all of my data manipulation. <br>
+         			JDBC: I would give myself a 3 - Meeting - because I believe I have JDBC configured correctly. <br> 
+         			Completion: I would give myself a 2 - Approaching - because I believe that I am getting close to MVP functionality with this project. <br> 
+         			Aesthetic: I'll give myself a 4 - Exceeding - Because I did put a lot of time in trying to make the site look nice and consistent. There is still a lot of work I could have done, <br> 
+         			but, this was a big step in front-end design for me. <br> 
+         			Object-Oriented-Programming: I would give myself a 3 - Meeting - Because I used objects most of the time to pass information around. I still have a lot to learn and implement, but I think  
+         			that as of this project OO really started to click. 
+         			
+         			
+         			
+         			</div>
                     </div>
                 </div>
             </div>

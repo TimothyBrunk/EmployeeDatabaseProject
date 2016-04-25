@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopZtWL58-FuZutGY-IaFC-KRMbTIediMqw5EmyEjqCg5_5twmsA">
+      <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopZtWL58-FuZutGY-IaFC-KRMbTIediMqw5EmyEjqCg5_5twmsA">
 
     <title>Top Secret Research and Design</title>
 
@@ -55,7 +55,7 @@
                     <li>
                         <a href="http://www.timothybrunk.com">Timothy Brunk</a>
                     </li>
-                    <li>
+                  <li>
                         <a href="About.jsp">About</a>
                     </li>
                     <li>
@@ -80,36 +80,18 @@
                     <div class="intro-message">
                         <h1>Top Secret Research and Design</h1>
                         <h3>Employee Database</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                            <form action="GetAllEmployees.do" method="POST" >
-                                <input type ="submit" value="List All Employees" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name"></span>
-                               </form> 
-                            </li>
-                            <li>
-                            <form action="AddEmployee.do" method="POST" > 
-                                <input type="submit" value="Add New Employee" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name"></span>
-                                
-                                </form>
-                            </li><br><br>
-                            <li>
-                            <form action="GetEmployeeById.do" method="GET">
-                        <input id="idtext" type="text" name="id" placeholder="Search By Id Number" required style="width: 200px; height: 40px;"/>
-                                <input type="submit" value="Search By Id" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name"></span>
-                                </form>
-                            </li>
-                            <br>
-                            <br>
-                            <li>
-                            <form action="GetEmployeeByName.do" method="GET">
-                        <input id="idtext" type="text" name="firstname" placeholder="FirstName" required style="width: 200px; height: 40px;"/>
-                        <input id="idtext" type="text" name="lastname" placeholder="LastName" required style="width: 200px; height: 40px;"/>
-                                <input type="submit" value="Search by Name" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name"></span>
-                                </form>
-                            </li>
+                      
+                        <h4>April 25th, 2016</h4>
                         
-                        </ul>
+         			<div id="bodytext" >
+         			With this project I put together mySQL and JDBC technologies which I had studying and learned for the first time that week. This was also my first step into using BootStrap for my css design. <br>
+         			A lot of work went into not only designing the back-end logic of adding, updating and deleting employees using mySQL database language and JDBC, but I also tried to push myself <br>
+         			in css design using BootStrap and wanted to work a little harder on the front end.<nr>
+         			This project was completed after having about 5 days of training in SQL and JDBC which of course built upon my knowledge or Java and Spring MVC. 
+         			
+         			
+         			
+         			</div>
                     </div>
                 </div>
             </div>

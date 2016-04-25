@@ -25,18 +25,43 @@ public class EmployeeDBDAO implements EmployeeDAO {
 			while (rs.next()) {
 				String eid = rs.getString(1);
 				String firstName = rs.getString(2);
-				// String middleName = rs.getString(3);
 				String lastName = rs.getString(4);
-				// String email = rs.getString(5);
-				// String gender = rs.getString(6);
-				// String hiredate = rs.getString(7);
-				// String salary = rs.getString(8);
 				String departmentId = rs.getString(9);
 				String jobId = rs.getString(10);
 				String address = rs.getString(11);
 				String city = rs.getString(12);
 				String state = rs.getString(13);
 				String zipcode = rs.getString(14);
+				emp = new Employee(eid, firstName, lastName, departmentId, jobId, address, city, state, zipcode);
+			}
+			rs.close();
+			statement.close();
+			conn.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return emp;
+	}
+
+	@Override
+	public Employee getEmpByName(String firstname, String lastname) {
+		Employee emp = null;
+		String sql = "Select * from employees where firstname ='"+firstname+"' AND lastname ='"+lastname+"';";
+		try {
+			Class.forName(DRIVER_CLASS_NAME);
+			Connection conn = DriverManager.getConnection(URL, "student", "student");
+			Statement statement = conn.createStatement(); 
+			ResultSet rs = statement.executeQuery(sql);
+			while (rs.next()) {
+				String eid = rs.getString(1);
+				String firstName = rs.getString(2);
+				String lastName = rs.getString(4);
+				String departmentId = rs.getString(11);
+				String jobId = rs.getString(12);
+				String address = rs.getString(13);
+				String city = rs.getString(14);
+				String state = rs.getString(15);
+				String zipcode = rs.getString(16);
 				emp = new Employee(eid, firstName, lastName, departmentId, jobId, address, city, state, zipcode);
 			}
 			rs.close();
@@ -101,9 +126,7 @@ public class EmployeeDBDAO implements EmployeeDAO {
 			stmt.setString(6, e.getCity());
 			stmt.setString(7, e.getState());
 			stmt.setString(8, e.getZipcode());
-			Class.forName(DRIVER_CLASS_NAME);
 			updateCount = stmt.executeUpdate();
-
 			statement.close();
 			conn.close();
 		} catch (Exception e1) {
@@ -114,16 +137,16 @@ public class EmployeeDBDAO implements EmployeeDAO {
 	}
 
 	@Override
-	public int deleteEmployee(int id) {
+	public int deleteEmployee(Employee e) {
 		int updateCount = 0;
-		String insertTable = "DELETE FROM Employees Where id = ; ";
-
+		String insertTable = "DELETE FROM employees WHERE id = ?;"; 
 		try {
 			Class.forName(DRIVER_CLASS_NAME);
 			Connection conn = DriverManager.getConnection(URL, "student", "student");
 			Statement statement = conn.createStatement();
 			PreparedStatement stmt = conn.prepareStatement(insertTable);
-			updateCount = stmt.executeUpdate("DELETE FROM Employees Where id =" +id+";");
+			stmt.setString(1, e.getEid());
+			updateCount = stmt.executeUpdate();
 			statement.close();
 			conn.close();
 		} catch (Exception e1) {
@@ -131,12 +154,12 @@ public class EmployeeDBDAO implements EmployeeDAO {
 		}
 		return updateCount;
 
-	}
+}
 
 	public int updateEmployee(Employee e) {
 		int updateCount = 0;
-		String insertTable = "INSERT INTO employees (firstname, lastname, department_id, job_id, "
-				+ "address,city,state,zipcode) VALUES (?,?,?,?,?,?,?,?)";
+		String insertTable = "UPDATE employees SET firstname = ?, lastname = ?,  department_id = ?, job_id = ?, "
+				+ "address = ?, city = ?, state = ?, zipcode=? WHERE id = ?; ";
 		try {
 			Class.forName(DRIVER_CLASS_NAME);
 			Connection conn = DriverManager.getConnection(URL, "student", "student");
@@ -150,8 +173,8 @@ public class EmployeeDBDAO implements EmployeeDAO {
 			stmt.setString(6, e.getCity());
 			stmt.setString(7, e.getState());
 			stmt.setString(8, e.getZipcode());
+			stmt.setString(9, e.getEid());
 			updateCount = stmt.executeUpdate();
-
 			statement.close();
 			conn.close();
 		} catch (Exception e1) {

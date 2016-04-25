@@ -7,6 +7,8 @@ public interface EmployeeDAO {
 	public ArrayList<ArrayList> getAllEmployees (String qry); 
 		// TODO Auto-generated method stub
 	public int addEmployee (Employee e); 
-	public int deleteEmployee(int id); 
+	public int deleteEmployee(Employee e); 
 	public int updateEmployee(Employee e); 
+	public Employee getEmpByName(String firstname, String lastname); 
+	
 }
